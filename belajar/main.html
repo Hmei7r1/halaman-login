@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Form Page</title>
+    <!-- link for css -->
+     <link rel="stylesheet" href="main.css">
+     <!-- link external -->
+     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
+     rel="stylesheet">
+</head>
+<body>
+
+    <div class="form-login">
+        <div class="area-in">
+            <div class="border">
+                <div class="bagian-form">
+                    <div class="login-page">
+                        <p id="notive"></p>
+                        <h1>LOGIN | PAGE</h1>
+                        <br>
+                    </div>
+                    <div class="image">
+                        <img src="/belajar/img/login.PNG" alt="" class="img">
+                        <img src="/belajar/img/cute-animated-cat-tutorial.gif" class="img-cut" alt="">
+                    </div>
+                    <div class="input-username">
+                        <p class="username">USERNAME</p>
+                        <input class="input-user" type="text" placeholder="username">
+                        <br>
+                    </div>
+                    <div class="input-password">
+                        <div class="input-password-eye">
+                            <label for="eye">
+                                <span class="material-symbols-outlined">
+                                    Visibility
+                                </span>
+                                <input type="checkbox" id="eye" class="eye">
+                            </label>
+                        </div>
+                        <p class="password">PASSWORD</p>
+                        <input class="input-pass" id="input-pass" type="password" placeholder="password">
+                        <br>
+                    </div>
+                    <br>
+                    <button id="btn" onclick="kirim()">Login</button>
+                    <p class="pass"><a href="#">Lupa Password ?</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+
+        function VisibilityPasswkod(){
+            let password = document.getElementById('input-pass');
+            let eye = document.getElementById('eye');
+
+            eye.addEventListener('click', function() {
+
+                if (password.type === 'password'){
+                    password.type = 'text';
+                }else if (password.type === 'password'){
+                    password.type = 'password'
+                }else{
+                    password.type = 'password'
+                }
+
+            }
+        )
+            
+        }
+
+        VisibilityPasswkod()
+
+        function kirim(){
+            
+            // mengambil info input user dan password
+
+            // let user = document.querySelector('.input-user').value
+            // let pass = document.querySelector('.input-pass').value
+
+            // localStorage.setItem("username", user)
+            // localStorage.setItem("password", pass)
+
+            let userLogin = document.querySelector('.input-user').value
+            let passLogin = document.querySelector('.input-pass').value
+
+            // check length password
+
+            // if (passLogin.length <= 7){
+            //     alert("password kurang panjang");
+            // }
+
+            if (userLogin === localStorage.getItem("username") && passLogin === localStorage.getItem("password")){
+                alert("login berhasil")
+            
+            } else if (userLogin == "" || passLogin == "") {
+
+                alert("Invalid input")
+
+            } else if  (userLogin == "user" && passLogin == "user") {
+                alert("Login Berhasil")
+            }else{
+                alert("Credential Not Found")
+            }
+
+        }
+
+
+        // function login(){
+        //     let userLogin = document.querySelector('.input-user').value
+        //     let passLogin = document.querySelector('.input-pass').value
+
+            
+
+        // }
+
+        // login()
+
+    </script>
+    
+</body>
+</html>
